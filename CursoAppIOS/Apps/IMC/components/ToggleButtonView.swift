@@ -8,37 +8,35 @@
 import SwiftUI
 
 struct ToggleButtonView: View {
-    let starIcon: String;
-    let text: String;
-    let gender: Int;
-    @Binding var selectedGender: Int;
-    
-    func changeSelectedGender() -> Void {
+    let icon: String
+    let text: String
+    let gender: Int
+    @Binding var selectedGender: Int
+
+    func changeSelectedGender() {
         selectedGender = gender
-        print(gender, selectedGender)   
+        print(gender, selectedGender)
     }
 
     var body: some View {
-        
-        let buttonColor = if(gender == selectedGender){
-            Color.buttonBackgroundTouched
-        }else{
-            Color.buttonBackground
-        }
-            
+
+        let buttonColor =
+            if gender == selectedGender {
+                Color.buttonBackgroundTouched
+            } else {
+                Color.buttonBackground
+            }
+
         Button(action: changeSelectedGender) {
             VStack {
-                Image(systemName: starIcon)
+                Image(systemName: icon)
                     .resizable()
                     .scaledToFit()
                     .frame(
-                        height:  100
+                        height: 100
                     )
                     .foregroundColor(.white)
-                Text(text)
-                    .font(.system(size: 20))
-                    .bold()
-                    .foregroundColor(.white)
+                TextInfoView(text: text)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
