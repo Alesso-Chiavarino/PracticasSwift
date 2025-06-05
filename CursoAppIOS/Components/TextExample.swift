@@ -12,7 +12,7 @@ struct TextExample: View {
         VStack {
 
         }
-        Text("todo bien?")
+        Text("todo biennn?")
             .font(.system(size: 20, weight: .bold))
             .italic()
             .underline()
